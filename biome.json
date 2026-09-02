@@ -25,6 +25,9 @@
       "preset": "recommended",
       "a11y": {
         "noSvgWithoutTitle": "off"
+      },
+      "suspicious": {
+        "noLeakedRender": "off"
       }
     },
     "domains": {
