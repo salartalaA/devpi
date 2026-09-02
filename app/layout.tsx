@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -23,7 +24,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       lang="en"
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        {children}
+        <Toaster
+          toastOptions={{
+            classNames: {
+              error: "bg-error-subtle! border-error/40! text-destructive!",
+              success: "bg-card! border-subtle! shadow-glow! text-primary!",
+            },
+            closeButton: true,
+          }}
+        />
+      </body>
     </html>
   );
 }
