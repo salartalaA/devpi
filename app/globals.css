@@ -1,26 +1,750 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* ═════════════════════════════════════════
+     COLORS
+     ═════════════════════════════════════════ */
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* ═════════════════════════════════════════
+     EXTENDED COLORS
+     ═════════════════════════════════════════ */
+
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+
+  --color-emerald: var(--emerald);
+  --color-emerald-subtle: var(--emerald-subtle);
+
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-subtle: var(--primary-subtle);
+  --color-primary-muted: var(--primary-muted);
+
+  /* Surface */
+
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-hover: var(--surface-hover);
+  --color-surface-active: var(--surface-active);
+
+  /* Borders */
+
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+
+  /* Text */
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+  --color-text-disabled: var(--text-disabled);
+
+  /* Semantic */
+
+  --color-success: var(--success);
+  --color-success-subtle: var(--success-subtle);
+
+  --color-warning: var(--warning);
+  --color-warning-subtle: var(--warning-subtle);
+
+  --color-error: var(--error);
+  --color-error-subtle: var(--error-subtle);
+
+  --color-info: var(--info);
+  --color-info-subtle: var(--info-subtle);
+
+  /* Playful accents */
+
+  --color-accent-lime: var(--accent-lime);
+  --color-accent-mint: var(--accent-mint);
+  --color-accent-sky: var(--accent-sky);
+  --color-accent-lavender: var(--accent-lavender);
+  --color-accent-peach: var(--accent-peach);
+
+  /* ═════════════════════════════════════════
+     CHARTS
+     ═════════════════════════════════════════ */
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* ═════════════════════════════════════════
+     SIDEBAR
+     ═════════════════════════════════════════ */
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* ═════════════════════════════════════════
+     GRADIENTS
+     ═════════════════════════════════════════ */
+
+  --background-image-gradient-primary: var(--gradient-primary);
+  --background-image-gradient-ambient: var(--gradient-ambient);
+  --background-image-gradient-surface: var(--gradient-surface);
+
+  /* ═════════════════════════════════════════
+     SHADOWS
+     ═════════════════════════════════════════ */
+
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+
+  --shadow-glow: var(--shadow-glow);
+  --shadow-primary: var(--shadow-primary);
+
+  /* ═════════════════════════════════════════
+     TYPOGRAPHY
+     ═════════════════════════════════════════ */
+
+  --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+
+  /* ═════════════════════════════════════════
+     RADIUS
+     ═════════════════════════════════════════ */
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* ═════════════════════════════════════════
+     MOTION
+     ═════════════════════════════════════════ */
+
+  --duration-fast: var(--duration-fast);
+  --duration-normal: var(--duration-normal);
+  --duration-slow: var(--duration-slow);
+
+  --ease-standard: var(--ease-standard);
+  --ease-emphasized: var(--ease-emphasized);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* ═════════════════════════════════════════
+     DEVBOX
+     Single Dark Forest Theme
+     ═════════════════════════════════════════ */
+
+  /* ─────────────────────────────────────────
+     Base
+     ───────────────────────────────────────── */
+
+  --background: #0a0d0b;
+  --foreground: #f1f5f2;
+
+  /* ─────────────────────────────────────────
+     Surfaces
+     ───────────────────────────────────────── */
+
+  --card: #111713;
+  --card-foreground: #f1f5f2;
+
+  --popover: #151c17;
+  --popover-foreground: #f1f5f2;
+
+  /* ─────────────────────────────────────────
+     Primary
+     ───────────────────────────────────────── */
+
+  --primary: #3fa66b;
+  --primary-foreground: #f4fff7;
+
+  /* ─────────────────────────────────────────
+     Secondary
+     ───────────────────────────────────────── */
+
+  --secondary: #19221b;
+  --secondary-foreground: #dce7df;
+
+  /* ─────────────────────────────────────────
+     Muted
+     ───────────────────────────────────────── */
+
+  --muted: #151c17;
+  --muted-foreground: #8f9b92;
+
+  /* ─────────────────────────────────────────
+     Accent
+     ───────────────────────────────────────── */
+
+  --accent: #1d271f;
+  --accent-foreground: #f1f5f2;
+
+  /* ─────────────────────────────────────────
+     Destructive
+     ───────────────────────────────────────── */
+
+  --destructive: #e76f70;
+  --destructive-foreground: #fff7f7;
+
+  /* ─────────────────────────────────────────
+     Borders / Inputs
+     ───────────────────────────────────────── */
+
+  --border: #202a23;
+  --input: #202a23;
+
+  /* ─────────────────────────────────────────
+     Focus Ring
+     ───────────────────────────────────────── */
+
+  --ring: #4db978;
+
+  /* ─────────────────────────────────────────
+     Charts
+     ───────────────────────────────────────── */
+
+  --chart-1: #3fa66b;
+  --chart-2: #5bc58a;
+  --chart-3: #b7d96b;
+  --chart-4: #83b8e8;
+  --chart-5: #b09ae8;
+
+  /* ─────────────────────────────────────────
+     Radius
+     ───────────────────────────────────────── */
+
+  --radius: 0.75rem;
+
+  /* ═════════════════════════════════════════
+     EXTENDED TOKENS
+     ═════════════════════════════════════════ */
+
+  /* ─────────────────────────────────────────
+     Forest Palette
+     ───────────────────────────────────────── */
+
+  --forest: #1f6b43;
+  --forest-deep: #123b27;
+
+  --emerald: #5bc58a;
+  --emerald-subtle: #183b29;
+
+  --primary-hover: #4db978;
+  --primary-active: #348d5b;
+  --primary-subtle: #173624;
+  --primary-muted: #245337;
+
+  /* ─────────────────────────────────────────
+     Surface Hierarchy
+     ───────────────────────────────────────── */
+
+  --surface: #111713;
+  --surface-raised: #151c17;
+  --surface-hover: #19221b;
+  --surface-active: #1d271f;
+
+  /* ─────────────────────────────────────────
+     Border Hierarchy
+     ───────────────────────────────────────── */
+
+  --border-subtle: #182019;
+  --border-strong: #2b392f;
+
+  /* ─────────────────────────────────────────
+     Text Hierarchy
+     ───────────────────────────────────────── */
+
+  --text-primary: #f1f5f2;
+  --text-secondary: #a7b2aa;
+  --text-muted: #8f9b92;
+  --text-subtle: #737e76;
+  --text-disabled: #4f5952;
+
+  /* ─────────────────────────────────────────
+     Semantic
+     ───────────────────────────────────────── */
+
+  --success: #55c987;
+  --success-subtle: #163725;
+
+  --warning: #e6b85c;
+  --warning-subtle: #3a2f18;
+
+  --error: #e76f70;
+  --error-subtle: #3b1e20;
+
+  --info: #6ea8e8;
+  --info-subtle: #1a2c42;
+
+  /* ─────────────────────────────────────────
+     Playful Accents
+     ───────────────────────────────────────── */
+
+  --accent-lime: #b7d96b;
+  --accent-mint: #8be0b2;
+  --accent-sky: #83b8e8;
+  --accent-lavender: #b09ae8;
+  --accent-peach: #e6a47d;
+
+  /* ═════════════════════════════════════════
+     GRADIENTS
+     ═════════════════════════════════════════ */
+
+  --gradient-primary: linear-gradient(
+    135deg,
+    #245337 0%,
+    #3fa66b 50%,
+    #5bc58a 100%
+  );
+
+  --gradient-ambient: radial-gradient(
+    circle at 50% 50%,
+    rgba(63, 166, 107, 0.16),
+    transparent 65%
+  );
+
+  --gradient-surface: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.025),
+    rgba(255, 255, 255, 0)
+  );
+
+  /* ═════════════════════════════════════════
+     SHADOWS
+     ═════════════════════════════════════════ */
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.18);
+
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.28);
+
+  --shadow-lg: 0 24px 70px rgba(0, 0, 0, 0.38);
+
+  --shadow-glow: 0 0 40px rgba(63, 166, 107, 0.14);
+
+  --shadow-primary: 0 8px 30px rgba(63, 166, 107, 0.18);
+
+  /* ═════════════════════════════════════════
+     MOTION
+     ═════════════════════════════════════════ */
+
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 450ms;
+
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ═════════════════════════════════════════
+     SIDEBAR
+     ═════════════════════════════════════════ */
+
+  --sidebar: #0d120f;
+  --sidebar-foreground: #f1f5f2;
+
+  --sidebar-primary: #3fa66b;
+  --sidebar-primary-foreground: #f4fff7;
+
+  --sidebar-accent: #19221b;
+  --sidebar-accent-foreground: #dce7df;
+
+  --sidebar-border: #202a23;
+  --sidebar-ring: #4db978;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    min-height: 100vh;
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--foreground);
-  background: var(--background);
+/* ═════════════════════════════════════════════
+   Reduced Motion
+   ═════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   DevBox Animations
+   ───────────────────────────────────────────── */
+
+@keyframes db-float {
+  0%,
+  100% {
+    transform: translateY(0) translate(0);
+  }
+
+  50% {
+    transform: translateY(-14px) translate(6px);
+  }
+}
+
+@keyframes db-float-slow {
+  0%,
+  100% {
+    transform: translateY(0) translate(0) rotate(0);
+  }
+
+  33% {
+    transform: translateY(-20px) translate(-10px) rotate(2deg);
+  }
+
+  66% {
+    transform: translateY(-8px) translate(12px) rotate(-1deg);
+  }
+}
+
+@keyframes db-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
+@keyframes db-blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  96% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes db-ambient-drift {
+  0% {
+    transform: translate(0) scale(1);
+  }
+
+  50% {
+    transform: translate(30px, -20px) scale(1.1);
+  }
+
+  100% {
+    transform: translate(0) scale(1);
+  }
+}
+
+@keyframes db-shake {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-4px) rotate(-1deg);
+  }
+
+  40% {
+    transform: translate(4px) rotate(1deg);
+  }
+
+  60% {
+    transform: translate(-3px) rotate(-0.5deg);
+  }
+
+  80% {
+    transform: translate(3px) rotate(0.5deg);
+  }
+}
+
+@keyframes db-bounce-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes db-spin-slow {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes db-pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes db-particle-rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-60px) scale(0.3);
+    opacity: 0;
+  }
+}
+
+@keyframes db-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes db-fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes db-scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes db-check-draw {
+  0% {
+    stroke-dashoffset: 24;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes db-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes db-grain {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+
+  10% {
+    transform: translate(-2%, -3%);
+  }
+
+  30% {
+    transform: translate(1%, 2%);
+  }
+
+  50% {
+    transform: translate(-1%, 1%);
+  }
+
+  70% {
+    transform: translate(2%, -1%);
+  }
+
+  90% {
+    transform: translate(-1%, -2%);
+  }
+}
+
+/* ─────────────────────────────────────────────
+   DevBox Animation Utilities
+   ───────────────────────────────────────────── */
+
+.db-anim-float {
+  animation: db-float 7s ease-in-out infinite;
+}
+
+.db-anim-float-slow {
+  animation: db-float-slow 12s ease-in-out infinite;
+}
+
+.db-anim-breathe {
+  animation: db-breathe 4s ease-in-out infinite;
+}
+
+.db-anim-blink {
+  animation: db-blink 5s ease-in-out infinite;
+}
+
+.db-anim-ambient {
+  animation: db-ambient-drift 18s ease-in-out infinite;
+}
+
+.db-anim-shake {
+  animation: db-shake 0.5s ease-in-out;
+}
+
+.db-anim-bounce-soft {
+  animation: db-bounce-soft 0.6s ease-in-out;
+}
+
+.db-anim-spin-slow {
+  animation: db-spin-slow 20s linear infinite;
+}
+
+.db-anim-fade-up {
+  animation: db-fade-up 0.6s var(--ease-emphasized) both;
+}
+
+.db-anim-fade-in {
+  animation: db-fade-in 0.5s ease both;
+}
+
+.db-anim-scale-in {
+  animation: db-scale-in 0.4s var(--ease-emphasized) both;
+}
+
+/* ─────────────────────────────────────────────
+   Stagger Delays
+   ───────────────────────────────────────────── */
+
+.db-delay-1 {
+  animation-delay: 0.08s;
+}
+
+.db-delay-2 {
+  animation-delay: 0.16s;
+}
+
+.db-delay-3 {
+  animation-delay: 0.24s;
+}
+
+.db-delay-4 {
+  animation-delay: 0.32s;
+}
+
+.db-delay-5 {
+  animation-delay: 0.4s;
+}
+
+.db-delay-6 {
+  animation-delay: 0.48s;
+}
+
+/* ─────────────────────────────────────────────
+   Reduced Motion
+   ───────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   Shimmer Utility
+   ───────────────────────────────────────────── */
+
+.db-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(63, 166, 107, 0.15) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: db-shimmer 1.5s linear infinite;
+}
+
+button {
+  cursor: pointer;
 }
