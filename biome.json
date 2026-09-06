@@ -24,10 +24,17 @@
     "rules": {
       "preset": "recommended",
       "a11y": {
-        "noSvgWithoutTitle": "off"
+        "noSvgWithoutTitle": "off",
+        "useSemanticElements": "off",
+        "useKeyWithClickEvents": "off",
+        "noNoninteractiveElementInteractions": "off"
       },
       "suspicious": {
         "noLeakedRender": "off"
+      },
+      "performance": {
+        "noNamespaceImport": "off",
+        "noJsxPropsBind": "off"
       }
     },
     "domains": {
