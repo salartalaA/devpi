@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import Sidebar from "@/components/workspace/sidebar";
 import { getCurrentUser } from "@/server/actions/auth";
 
 export default async function WorkSpace() {
@@ -8,5 +9,9 @@ export default async function WorkSpace() {
     return redirect("/auth/login");
   }
 
-  return null;
+  return (
+    <div className="flex overflow-hidden">
+      <Sidebar />
+    </div>
+  );
 }
