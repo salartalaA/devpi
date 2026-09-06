@@ -9,12 +9,8 @@ export default function LogOutButton() {
   };
 
   return (
-    <button
-      className="rounded-lg bg-black p-2.5 text-white"
-      onClick={handleLogOut}
-      type="button"
-    >
-      <LogOut size={20} />
+    <button onClick={handleLogOut} type="button">
+      <LogOut className="text-white" size={14} />
     </button>
   );
 }
