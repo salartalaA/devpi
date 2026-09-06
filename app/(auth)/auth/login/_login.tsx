@@ -11,6 +11,7 @@ import {
   Mail,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -19,8 +20,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { type LoginData, loginSchema } from "@/schemas/auth.schema";
+import { loginUser } from "@/server/actions/auth";
 
-export default function Login() {
+export default function LoginPage() {
   const {
     register,
     handleSubmit,
@@ -30,6 +32,7 @@ export default function Login() {
   });
 
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
 
   const showPasswordFunc = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -37,14 +40,19 @@ export default function Login() {
     setShowPassword((prev) => !prev);
   };
 
-  const onSubmit = async () => {
-    await new Promise((resolver) => setTimeout(resolver, 1000));
+  const onSubmit = async (user: LoginData) => {
+    const result = await loginUser(user);
 
-    toast.success("Welcome back!", {
-      classNames: { closeButton: "bg-card!" },
-      closeButton: true,
-      position: "top-center",
-    });
+    if (
+      result?.field === "email-validation" ||
+      result?.field === "password-validation"
+    ) {
+      return toast.error(result.message);
+    }
+
+    toast.success("Welcome back!");
+
+    router.push("/");
   };
 
   return (

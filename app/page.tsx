@@ -1,17 +1,30 @@
 import Image from "next/image";
+import { redirect } from "next/navigation";
+import LogOutButton from "@/components/log-out-button";
+import { getCurrentUser } from "@/server/actions/auth";
 
-export default function Home() {
+export default async function Home() {
+  const currentUser = await getCurrentUser();
+
+  if (!currentUser) {
+    return redirect("/auth/login");
+  }
+
   return (
     <div className="flex flex-1 flex-col items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex w-full max-w-3xl flex-1 flex-col items-center justify-between bg-white px-16 py-32 sm:items-start dark:bg-black">
-        <Image
-          alt="Next.js logo"
-          className="h-5 w-[100px] dark:invert"
-          height={20}
-          priority
-          src="/next.svg"
-          width={100}
-        />
+        <div className="flex w-full items-center justify-between text-black">
+          <Image
+            alt="Next.js logo"
+            className="h-5 w-[100px] dark:invert"
+            height={20}
+            priority
+            src="/next.svg"
+            width={100}
+          />
+
+          <LogOutButton />
+        </div>
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <h1 className="max-w-xs font-semibold text-3xl text-black leading-10 tracking-tight dark:text-zinc-50">
             To get started, edit the{" "}

@@ -27,6 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col">
         {children}
         <Toaster
+          position="top-center"
           toastOptions={{
             classNames: {
               error: "bg-error-subtle! border-error/40! text-destructive!",

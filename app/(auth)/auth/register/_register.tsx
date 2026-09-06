@@ -13,6 +13,7 @@ import {
   UserPlus,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -22,8 +23,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { type RegisterData, registerSchema } from "@/schemas/auth.schema";
+import { registerUser } from "@/server/actions/auth";
 
-export default function Register() {
+export default function RegisterPage() {
   const {
     register,
     handleSubmit,
@@ -35,6 +37,8 @@ export default function Register() {
   });
 
   const [showPassword, setShowPassword] = useState(false);
+
+  const router = useRouter();
 
   const password = watch("password") ?? "";
   const username = watch("username") ?? "";
@@ -65,14 +69,16 @@ export default function Register() {
     setShowPassword((prev) => !prev);
   };
 
-  const onSubmit = async () => {
-    await new Promise((resolver) => setTimeout(resolver, 1000));
+  const onSubmit = async (newUser: RegisterData) => {
+    const result = await registerUser(newUser);
 
-    toast.success("Account created successfully!", {
-      classNames: { closeButton: "bg-card!" },
-      closeButton: true,
-      position: "top-center",
-    });
+    if (result?.field === "email" || result?.field === "username") {
+      return toast.error(result?.message);
+    }
+
+    toast.success("Account created successfully!");
+
+    router.push("/auth/login");
   };
 
   return (
