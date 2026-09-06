@@ -1,13 +1,12 @@
 import {
-  Binary,
   Boxes,
   Braces,
-  FileCode2,
-  GitBranch,
-  Hash,
+  Clock3,
+  FolderTree,
+  Globe2,
   KeyRound,
-  Terminal,
-  Users,
+  Play,
+  Variable,
   Zap,
 } from "lucide-react";
 
@@ -56,7 +55,7 @@ export default function Branding() {
           }}
         />
 
-        {/* DevBox center */}
+        {/* DevPI center */}
         <div
           className="db-anim-fade-up relative z-10 flex flex-col items-center gap-3"
           style={{ animationDelay: "0.3s" }}
@@ -85,7 +84,7 @@ export default function Branding() {
           </span>
         </div>
 
-        {/* Snippet Vault */}
+        {/* Request Builder */}
         <div
           className="db-anim-float absolute"
           style={{ left: "12%", top: "8%" }}
@@ -102,8 +101,8 @@ export default function Branding() {
               className="flex size-[30px] shrink-0 items-center justify-center rounded-lg"
               style={{ background: "var(--surface-active)" }}
             >
-              <span style={{ color: "var(--accent-mint)" }}>
-                <Terminal size={18} />
+              <span style={{ color: "var(--primary)" }}>
+                <Play size={18} />
               </span>
             </div>
 
@@ -112,11 +111,11 @@ export default function Branding() {
                 className="truncate font-semibold text-xs"
                 style={{ color: "var(--foreground)" }}
               >
-                Snippet Vault
+                Request Builder
               </span>
 
               <span className="truncate text-[0.6875rem] text-text-subtle">
-                12 saved
+                Build & Send
               </span>
             </div>
 
@@ -127,12 +126,12 @@ export default function Branding() {
                 color: "var(--foreground-subtle)",
               }}
             >
-              tools
+              request
             </span>
           </div>
         </div>
 
-        {/* JSON Formatter */}
+        {/* JSON Response */}
         <div
           className="db-anim-float-slow absolute"
           style={{ right: "10%", top: "14%" }}
@@ -159,11 +158,11 @@ export default function Branding() {
                 className="truncate font-semibold text-xs"
                 style={{ color: "var(--foreground)" }}
               >
-                JSON Formatter
+                JSON Response
               </span>
 
               <span className="truncate text-[0.6875rem] text-text-subtle">
-                Auto-indent
+                Pretty & Inspect
               </span>
             </div>
 
@@ -174,12 +173,12 @@ export default function Branding() {
                 color: "var(--foreground-subtle)",
               }}
             >
-              formatter
+              response
             </span>
           </div>
         </div>
 
-        {/* Diff Viewer */}
+        {/* Collections */}
         <div
           className="db-anim-float-slow absolute"
           style={{ bottom: "16%", left: "8%" }}
@@ -197,7 +196,7 @@ export default function Branding() {
               style={{ background: "var(--surface-active)" }}
             >
               <span style={{ color: "var(--accent-lavender)" }}>
-                <GitBranch size={18} />
+                <FolderTree size={18} />
               </span>
             </div>
 
@@ -206,11 +205,11 @@ export default function Branding() {
                 className="truncate font-semibold text-xs"
                 style={{ color: "var(--foreground)" }}
               >
-                Diff Viewer
+                Collections
               </span>
 
               <span className="truncate text-[0.6875rem] text-text-subtle">
-                3 files
+                Requests organized
               </span>
             </div>
 
@@ -221,12 +220,12 @@ export default function Branding() {
                 color: "var(--foreground-subtle)",
               }}
             >
-              compare
+              organize
             </span>
           </div>
         </div>
 
-        {/* Base64 */}
+        {/* Environments */}
         <div
           className="db-anim-float absolute"
           style={{ bottom: "10%", right: "12%" }}
@@ -244,7 +243,7 @@ export default function Branding() {
               style={{ background: "var(--surface-active)" }}
             >
               <span style={{ color: "var(--accent-lime)" }}>
-                <Binary size={18} />
+                <Globe2 size={18} />
               </span>
             </div>
 
@@ -253,11 +252,11 @@ export default function Branding() {
                 className="truncate font-semibold text-xs"
                 style={{ color: "var(--foreground)" }}
               >
-                Base64
+                Environments
               </span>
 
               <span className="truncate text-[0.6875rem] text-text-subtle">
-                Encode / Decode
+                Dev · Stage · Prod
               </span>
             </div>
 
@@ -268,12 +267,12 @@ export default function Branding() {
                 color: "var(--foreground-subtle)",
               }}
             >
-              encode
+              config
             </span>
           </div>
         </div>
 
-        {/* UUID Generator */}
+        {/* Variables */}
         <div
           className="db-anim-float absolute"
           style={{ left: "4%", top: "44%" }}
@@ -291,7 +290,7 @@ export default function Branding() {
               style={{ background: "var(--surface-active)" }}
             >
               <span style={{ color: "var(--accent-peach)" }}>
-                <Hash size={18} />
+                <Variable size={18} />
               </span>
             </div>
 
@@ -300,11 +299,11 @@ export default function Branding() {
                 className="truncate font-semibold text-xs"
                 style={{ color: "var(--foreground)" }}
               >
-                UUID Gen
+                Variables
               </span>
 
               <span className="truncate text-[0.6875rem] text-text-subtle">
-                v4 · v7
+                {"{{base_url}}"}
               </span>
             </div>
 
@@ -315,12 +314,12 @@ export default function Branding() {
                 color: "var(--foreground-subtle)",
               }}
             >
-              generate
+              dynamic
             </span>
           </div>
         </div>
 
-        {/* Secret Vault */}
+        {/* API Authentication */}
         <div
           className="db-anim-float-slow absolute"
           style={{ right: "4%", top: "46%" }}
@@ -347,11 +346,11 @@ export default function Branding() {
                 className="truncate font-semibold text-xs"
                 style={{ color: "var(--foreground)" }}
               >
-                Secret Vault
+                API Auth
               </span>
 
               <span className="truncate text-[0.6875rem] text-text-subtle">
-                AES-256
+                Bearer · Basic · Key
               </span>
             </div>
 
@@ -367,7 +366,7 @@ export default function Branding() {
           </div>
         </div>
 
-        {/* Team Workspace */}
+        {/* Request History */}
         <div
           className="db-anim-fade-up db-delay-4 absolute opacity-100"
           style={{
@@ -388,7 +387,7 @@ export default function Branding() {
               className="flex size-[34px] shrink-0 items-center justify-center rounded-lg"
               style={{ background: "var(--primary-subtle)" }}
             >
-              <Users color="var(--primary)" size={16} />
+              <Clock3 color="var(--primary)" size={16} />
             </div>
 
             <div className="flex flex-col">
@@ -396,11 +395,11 @@ export default function Branding() {
                 className="font-semibold text-xs"
                 style={{ color: "var(--foreground)" }}
               >
-                Team Workspace
+                Request History
               </span>
 
               <span className="text-[0.6875rem] text-text-subtle">
-                4 members · active
+                Every execution tracked
               </span>
             </div>
 
@@ -424,7 +423,7 @@ export default function Branding() {
           </div>
         </div>
 
-        {/* Tools ready */}
+        {/* Direct API execution */}
         <div
           className="db-anim-fade-up db-delay-5 absolute flex items-center gap-2 rounded-full px-3 py-1.5"
           style={{
@@ -441,11 +440,11 @@ export default function Branding() {
             className="font-semibold text-[0.6875rem]"
             style={{ color: "var(--foreground-muted)" }}
           >
-            24 tools ready
+            Direct API requests
           </span>
         </div>
 
-        {/* Code snippet */}
+        {/* Request snippet */}
         <div
           className="db-anim-fade-up db-delay-3 absolute rounded-lg px-3 py-2 font-mono text-[0.6875rem] leading-relaxed"
           style={{
@@ -458,15 +457,12 @@ export default function Branding() {
             transform: "translateX(-50%)",
           }}
         >
-          <span style={{ color: "var(--accent-lavender)" }}>const</span>{" "}
-          <span style={{ color: "var(--accent-sky)" }}>box</span> ={" "}
-          <span style={{ color: "var(--accent-mint)" }}>DevBox</span>
-          <span className="text-text-subtle">.</span>
-          <span style={{ color: "var(--primary)" }}>open</span>
-          ()
+          <span style={{ color: "var(--accent-lavender)" }}>GET</span>{" "}
+          <span style={{ color: "var(--accent-sky)" }}>{"{{base_url}}"}</span>
+          <span className="text-text-subtle">/users</span>
         </div>
 
-        {/* File code */}
+        {/* Request status */}
         <div
           className="db-anim-fade-up db-delay-6 absolute flex items-center gap-1.5 rounded-lg px-2.5 py-1.5"
           style={{
@@ -477,13 +473,13 @@ export default function Branding() {
             right: "40%",
           }}
         >
-          <FileCode2 color="var(--accent-sky)" size={13} />
+          <Globe2 color="var(--success)" size={13} />
 
           <span
             className="font-medium text-[0.6875rem]"
             style={{ color: "var(--foreground-muted)" }}
           >
-            utils.ts
+            200 OK · 143ms
           </span>
         </div>
       </div>
