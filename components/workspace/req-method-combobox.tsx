@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import {
   Combobox,
   ComboboxContent,
@@ -10,15 +9,15 @@ import {
   ComboboxList,
 } from "@/components/ui/combobox";
 import { cn } from "@/lib/utils";
-
-type RequestMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+import { useRequestStore } from "@/store/request-store";
+import type { RequestMethod } from "@/types";
 
 interface Method {
   className: string;
   title: RequestMethod;
 }
 
-const METHODS: Method[] = [
+export const METHODS: Method[] = [
   { className: "text-success", title: "GET" },
   { className: "text-accent-lime", title: "POST" },
   { className: "text-info", title: "PUT" },
@@ -27,20 +26,28 @@ const METHODS: Method[] = [
 ];
 
 export default function RequestMethodCombobox() {
-  const [selectedMethod, setSelectedMethod] = useState<RequestMethod | null>(
-    "GET"
-  );
+  const requests = useRequestStore((state) => state.requests);
+
+  const activeRequestId = useRequestStore((state) => state.activeRequestId);
+
+  const activeRequest = requests.find((req) => req.id === activeRequestId);
+
+  const updateRequest = useRequestStore((state) => state.updateRequest);
 
   const selectedMethodClassName = METHODS.find(
-    (method) => method.title === selectedMethod
+    (method) => method.title === activeRequest?.method
   )?.className;
 
   return (
     <Combobox
       items={METHODS}
       itemToStringValue={(method) => method}
-      onValueChange={(value) => setSelectedMethod(value)}
-      value={selectedMethod}
+      onValueChange={(method) =>
+        updateRequest(activeRequestId as string, {
+          method: method as RequestMethod,
+        })
+      }
+      value={activeRequest?.method}
     >
       <ComboboxInput
         className={cn(selectedMethodClassName, "h-9")}

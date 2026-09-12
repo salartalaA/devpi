@@ -29,6 +29,11 @@
         "useKeyWithClickEvents": "off",
         "noNoninteractiveElementInteractions": "off"
       },
+
+      "style": {
+        "noNonNullAssertion": "off"
+      },
+
       "suspicious": {
         "noLeakedRender": "off"
       },
